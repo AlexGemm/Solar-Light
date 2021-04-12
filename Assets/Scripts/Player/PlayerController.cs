@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour{
 
 
 
+    //Initialization
+    private void Start(){
+
+        StartCoroutine(MoveUp());
+
+    }
 
     //Every frame
     void Update(){
@@ -93,6 +99,22 @@ public class PlayerController : MonoBehaviour{
 
             //Destroy the player object (TEMP)
             Destroy(gameObject);
+
+        }
+
+    }
+
+    //Intro section to move forward into scene
+    private IEnumerator MoveUp(){
+
+        //While not at the player position
+        while (transform.position.y <= -4.0f){
+
+            //Move up
+            transform.Translate(Vector3.up * Time.deltaTime * 4.0f);
+
+            //return every frame
+            yield return true;
 
         }
 
