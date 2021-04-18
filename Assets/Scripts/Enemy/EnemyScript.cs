@@ -10,21 +10,21 @@ public class EnemyScript : MonoBehaviour{
 
 
     //Two floats, one is a number given by the facilitator, the other is individual to each enemy, both store enemy health
-    public float enemySpeedGiven = 8.0f;
+    public float enemySpeedGiven = 0.0f;
     private float enemySpeed = 0.0f;
 
     //Two ints, one is a number given by the facilitator, the other is individual to each enemy, both store enemy health
-    public int enemyHealthGiven = 2;
+    public int enemyHealthGiven = 0;
     private int enemyHealth = 0;
 
     //Floats that manage where an enemy can go when moving, this is given by the facilitator and then stored
-    public float enemySpaceStart = -3.9f;
+    public float enemySpaceStart = -0.0f;
     private float indSpaceStart = 0.0f;
-    public float enemySpaceEnd = 3.9f;
+    public float enemySpaceEnd = 0.0f;
     private float indSpaceEnd = 0.0f;
 
     //Float variable that decides how fast this enemy fires
-    public float fireRateGiven = 1.5f;
+    public float fireRateGiven = 0.0f;
     private float fireRate = 0.0f;
 
 
@@ -60,13 +60,17 @@ public class EnemyScript : MonoBehaviour{
         //Increase the times hit variable
         timesHit++;
 
+        //Destroy the laser
+        Destroy(other.gameObject);
+
         //If times hit is equal or greater to the enemy health
         if (timesHit >= enemyHealth){
 
             //Destroy the enemy
             Destroy(gameObject);
-            //Decrease the enemies alive variable in the Game Manager
 
+            //Decrease the enemies alive variable in the Game Manager
+            GameObject.Find("Facilitator").GetComponent<GameManager>().enemiesAlive--;
 
 
         }

@@ -94,6 +94,9 @@ public class PlayerController : MonoBehaviour{
         //Make the player lose a point of health
         playerHealth--;
 
+        //Destroy the laser
+        Destroy(other.gameObject);
+
         //If the player was hit 3 times
         if (playerHealth == 0){
 
