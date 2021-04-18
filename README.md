@@ -1,8 +1,8 @@
 # Solar Light
 
-Devlog
+Devlog:
 
-April 6th
+April 6th:
 - Created a spaceship sprite.
 - Created more sprites and placed in Unity as prefabs.
 - Made some necessary scripts
