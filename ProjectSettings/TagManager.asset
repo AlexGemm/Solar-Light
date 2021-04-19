@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - Enemy
   - Asteroid
+  - Powerup
   layers:
   - Default
   - TransparentFX

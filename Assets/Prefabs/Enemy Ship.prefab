@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLaser: {fileID: 4833544110489046306, guid: bc841d5ef3610484a988b775bc061072,
     type: 3}
+  attackSound: {fileID: 8300000, guid: 8fdf1cdb365faab40821eb21b05681cb, type: 3}
   enemySpeedGiven: 0
   enemyHealthGiven: 0
   enemySpaceStart: 0

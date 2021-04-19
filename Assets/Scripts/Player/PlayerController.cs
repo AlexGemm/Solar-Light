@@ -91,19 +91,46 @@ public class PlayerController : MonoBehaviour{
     //Check if the player should be dead
     private void OnTriggerEnter(Collider other){
 
-        //Make the player lose a point of health
-        playerHealth--;
-
-        //Destroy the laser
+        //Destroy the other object
         Destroy(other.gameObject);
 
-        //If the player was hit 3 times
-        if (playerHealth == 0){
+        //If the enemy hits a power up
+        if (other.CompareTag("Powerup")){
 
-            //Destroy the player object (TEMP)
-            Destroy(gameObject);
+            //Fire twice as fast
+            fireRate /= 3.0f;
+
+            //Start a coroutine that eventually ends the effect
+            StartCoroutine(PowerupControl());
 
         }
+        //Else it is an enemy laser or asteroid so
+        else{
+
+            //Make the player lose a point of health
+            playerHealth--;
+
+            //If the player was hit 3 times
+            if (playerHealth == 0){
+
+                //Destroy the player object (TEMP)
+                Destroy(gameObject);
+
+            }
+
+        }
+
+    }
+
+    //Manage a players power up
+    IEnumerator PowerupControl(){
+
+        //After 10 seconds
+        yield return new WaitForSeconds(10);
+
+        //They no longer have the power
+        fireRate *= 3;
+        
 
     }
 

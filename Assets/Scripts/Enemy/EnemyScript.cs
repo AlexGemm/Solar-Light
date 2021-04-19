@@ -6,6 +6,8 @@ public class EnemyScript : MonoBehaviour{
 
     //Stores the current type of laser the player is using
     public GameObject currentLaser;
+    //Stores the audio clip for attacking
+    public AudioClip attackSound;
 
 
 
@@ -54,15 +56,19 @@ public class EnemyScript : MonoBehaviour{
     //Integer variable that stores how many times the enemy had been hit by a player laser
     private int timesHit = 0;
 
-    //Upon collision with the players laser
+    //Upon collision
     private void OnTriggerEnter(Collider other){
 
-        //Increase the times hit variable
-        timesHit++;
+        //If the object is not a power up
+        if(other.CompareTag("Powerup") == false){
 
-        //Destroy the laser
-        Destroy(other.gameObject);
+            //Increase the times hit variable
+            timesHit++;
 
+            //Destroy the laser
+            Destroy(other.gameObject);
+
+        }
         //If times hit is equal or greater to the enemy health
         if (timesHit >= enemyHealth){
 
@@ -137,8 +143,12 @@ public class EnemyScript : MonoBehaviour{
     //Control the fire of the enemy laser
     private IEnumerator FireLaser(){
 
-        //Temporary always
+        //Always
         while (true){
+
+            //Make the facilitators audio source play the attack sound
+            GameObject.Find("Facilitator").GetComponent<AudioSource>().clip = attackSound;
+            GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
 
             //Vector3 that stores where the laser should spawn according to where the enemy is at on the x axis
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y - 1.1f, 0.0f);

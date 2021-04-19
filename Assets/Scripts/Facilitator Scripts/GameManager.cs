@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour{
 
@@ -8,6 +11,11 @@ public class GameManager : MonoBehaviour{
     public GameObject enemy;
     //Stores the harder enemy object prefab
     public GameObject enemyHard;
+    //Stores the power up prefab
+    public GameObject powerup;
+    //Stores the UI text for health
+    public TextMeshProUGUI healthText;
+
 
 
     //Integer variable represents how many enemies are alive
@@ -20,6 +28,9 @@ public class GameManager : MonoBehaviour{
 
     //Every frame
     void Update(){
+
+        //Make sure the health text on the screen is updated
+        updateHealthText();
 
         //If there are no enemies alive
         if (enemiesAlive == 0){
@@ -209,6 +220,9 @@ public class GameManager : MonoBehaviour{
 
                 case 11:
 
+                    //Spawn a power up
+                    Instantiate(powerup, powerup.transform.position, powerup.transform.rotation);
+
                     //Indicate that there are currently enemies alive as to not change stages
                     enemiesAlive++;
 
@@ -352,6 +366,26 @@ public class GameManager : MonoBehaviour{
                     break;
 
             }
+
+        }
+
+    }
+
+    //Updates the score to account for changes
+    void updateHealthText(){
+
+        //If the player object exists
+        if (GameObject.Find("Player") != null){
+
+            //Set the score text to reflect the current score variable
+            healthText.text = "Lives: " + GameObject.Find("Player").GetComponent<PlayerController>().playerHealth;
+
+        }
+        //Else it doesn't, so
+        else{
+
+            //Set lives to 0
+            healthText.text = "Lives: 0";
 
         }
 
