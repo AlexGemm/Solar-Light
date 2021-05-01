@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour{
 
     //Stores the current type of laser the player is using
     public GameObject currentLaser;
+
+    //Needs public buttons to display as active once they die
+    public Button continueButton;
+    public TextMeshProUGUI loseText;
 
 
 
@@ -113,7 +119,11 @@ public class PlayerController : MonoBehaviour{
             //If the player was hit 3 times
             if (playerHealth == 0){
 
-                //Destroy the player object (TEMP)
+                //Set the UI active to continue
+                continueButton.gameObject.SetActive(true);
+                loseText.gameObject.SetActive(true);
+
+                //Destroy the object
                 Destroy(gameObject);
 
             }

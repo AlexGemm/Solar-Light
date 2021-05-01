@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour{
     public int enemiesAlive = 0;
 
     //Integer variable that stores the stage
-    private int stage = 0;
+    private int stage = ValueStorage.stagePoint;
+
+    //Boolean variable that stores if the ending "animation" finished.
+    private bool ending = false;
 
 
 
@@ -360,6 +363,55 @@ public class GameManager : MonoBehaviour{
 
                     break;
 
+                case 19:
+
+                    //If not ending
+                    if(ending == false){
+
+                        //Get the player reference
+                        GameObject player = GameObject.Find("Player");
+
+                        //Start the Coroutine for ending
+                        StartCoroutine(Ending(player));
+
+                        //Indicate it is ending
+                        ending = true;
+
+                    }
+                    //Else it is ending
+                    else{
+
+                        //And so should be staying at case 19 but leaving instead of starting the coroutine again
+                        break;
+
+                    }
+
+
+                    break;
+
+                case 20:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Setup variables for this stages enemies
+                    enemy.GetComponent<EnemyScript>().enemySpeedGiven = 10.0f;
+                    enemy.GetComponent<EnemyScript>().enemyHealthGiven = 1;
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+                    enemy.GetComponent<EnemyScript>().fireRateGiven = 1.25f;
+
+                    gameObject.GetComponent<AsteroidManager>().spawnInterval = 1.5f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    //Move stages for next time
+                    stage = 20;
+
+                    //Leave the switch statement
+                    break;
+
                 default:
 
                     //Leave the switch statement
@@ -375,19 +427,47 @@ public class GameManager : MonoBehaviour{
     void updateHealthText(){
 
         //If the player object exists
-        if (GameObject.Find("Player") != null){
+        if (GameObject.Find("Player") != null) {
 
             //Set the score text to reflect the current score variable
             healthText.text = "Lives: " + GameObject.Find("Player").GetComponent<PlayerController>().playerHealth;
 
         }
         //Else it doesn't, so
-        else{
+        else {
 
             //Set lives to 0
             healthText.text = "Lives: 0";
 
         }
+
+    }
+
+    //Once enemies are dead fly up and end the level
+    private IEnumerator Ending(GameObject player){
+
+        //While not at the top of the screen
+        while (player.transform.position.y <= 5.0f){
+
+            //Move up
+            player.transform.Translate(Vector3.up * Time.deltaTime * 8.0f);
+
+            //return every frame
+            yield return true;
+
+        }
+
+        //Move the stage up
+        stage++;
+
+        //Tell the level select that the level is over
+        ValueStorage.stagePoint = stage;
+
+        //Go back to level select
+        gameObject.GetComponent<LevelSelect>().LoadLevelSelect();
+
+        //return after the while loop
+        yield return true;
 
     }
 

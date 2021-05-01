@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 274393505}
   - component: {fileID: 274393504}
   m_Layer: 0
-  m_Name: Earth Background
+  m_Name: Moon Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c44a60a92a061d47833e3a38898d752, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff2194830244f1a44bb051bb70c4d236, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1188,6 +1188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d07f2b9f578b149b3a94121dcb0e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moon: {fileID: 0}
+  greyMoon: {fileID: 0}
 --- !u!1001 &433187836498890925
 PrefabInstance:
   m_ObjectHideFlags: 0
