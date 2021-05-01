@@ -23,14 +23,27 @@ public class AsteroidScript : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other){
 
+        //If the object it's colliding with is not the barrier
         if(other.tag != "Barrier"){
 
+            //If the object it's colliding with is the player
             if (other.tag == "Player"){
 
+                //Only destroy the asteroid, the rest will be taken care of in the player controller
                 Destroy(gameObject);
 
             }
+            //Else if it is a powerup
+            else if (other.tag == "Powerup"){
+
+                //Ignore it
+
+            }
+            //Otherwise simply destroy the object and itself
             else{
+
+                //Play the sound of hits
+                GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
 
                 Destroy(other.gameObject);
                 Destroy(gameObject);

@@ -37,7 +37,7 @@ public class LevelSelect : MonoBehaviour{
         if(ValueStorage.stagePoint == 0){
 
             //Start the Earth Scene
-            SceneManager.LoadScene("Earth");
+            SceneManager.LoadScene("Cutscene");
 
         }
             

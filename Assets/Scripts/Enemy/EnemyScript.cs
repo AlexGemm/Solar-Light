@@ -6,8 +6,6 @@ public class EnemyScript : MonoBehaviour{
 
     //Stores the current type of laser the player is using
     public GameObject currentLaser;
-    //Stores the audio clip for attacking
-    public AudioClip attackSound;
 
 
 
@@ -29,6 +27,10 @@ public class EnemyScript : MonoBehaviour{
     public float fireRateGiven = 0.0f;
     private float fireRate = 0.0f;
 
+    //Float variable that decides the left or right speed of the laser
+    public float divSpeedGiven = 0.0f;
+    private float divSpeed = 0.0f;
+
 
     //Initializations
     void Start(){
@@ -39,6 +41,10 @@ public class EnemyScript : MonoBehaviour{
         indSpaceStart = enemySpaceStart;
         indSpaceEnd = enemySpaceEnd;
         fireRate = fireRateGiven;
+        divSpeed = divSpeedGiven;
+
+        //Set the div speed of the laser for this enemy to what was given
+        currentLaser.GetComponent<EnemyLaserScript>().laserDivGiven = divSpeed;
 
         //Move into scene and start firing it's laser
         StartCoroutine(StartUp());
@@ -64,6 +70,9 @@ public class EnemyScript : MonoBehaviour{
 
             //Increase the times hit variable
             timesHit++;
+
+            //Play the sound of hits
+            GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
 
             //Destroy the laser
             Destroy(other.gameObject);
@@ -147,14 +156,15 @@ public class EnemyScript : MonoBehaviour{
         while (true){
 
             //Make the facilitators audio source play the attack sound
-            GameObject.Find("Facilitator").GetComponent<AudioSource>().clip = attackSound;
-            GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<AudioSource>().Play();
 
             //Vector3 that stores where the laser should spawn according to where the enemy is at on the x axis
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y - 1.1f, 0.0f);
 
             //Create the laser and put it in the position determined by the laserPosition vector
             Instantiate(currentLaser, laserPosition, currentLaser.transform.rotation);
+
+            currentLaser.GetComponent<EnemyLaserScript>().laserDivGiven *= -1.0f;
 
             //Wait for a new rate of fire
             yield return new WaitForSeconds(fireRate);

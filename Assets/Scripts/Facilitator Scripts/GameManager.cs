@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour{
     public GameObject enemy;
     //Stores the harder enemy object prefab
     public GameObject enemyHard;
-    //Stores the power up prefab
+    //Stores the double enemy object prefab
+    public GameObject enemyDouble;
+    //Stores the power up prefabs
     public GameObject powerup;
+    public GameObject health;
     //Stores the UI text for health
     public TextMeshProUGUI healthText;
 
@@ -21,7 +24,7 @@ public class GameManager : MonoBehaviour{
     //Integer variable represents how many enemies are alive
     public int enemiesAlive = 0;
 
-    //Integer variable that stores the stage
+    //Integer variable that stores the current stage
     private int stage = ValueStorage.stagePoint;
 
     //Boolean variable that stores if the ending "animation" finished.
@@ -399,7 +402,7 @@ public class GameManager : MonoBehaviour{
                     enemy.GetComponent<EnemyScript>().enemyHealthGiven = 1;
                     enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
                     enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
-                    enemy.GetComponent<EnemyScript>().fireRateGiven = 1.25f;
+                    enemy.GetComponent<EnemyScript>().fireRateGiven = 1.5f;
 
                     gameObject.GetComponent<AsteroidManager>().spawnInterval = 1.5f;
 
@@ -407,9 +410,66 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 20;
+                    stage = 21;
 
                     //Leave the switch statement
+                    break;
+
+                case 21:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    //Move stages for next time
+                    stage = 22;
+
+                    break;
+
+                case 22:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    //Move stages for next time
+                    stage = 23;
+
+                    break;
+
+                case 23:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Setup variables for this stages enemies
+                    enemyDouble.GetComponent<EnemyScript>().enemySpeedGiven = 10.0f;
+                    enemyDouble.GetComponent<EnemyScript>().enemyHealthGiven = 1;
+                    enemyDouble.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemyDouble.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+                    enemyDouble.GetComponent<EnemyScript>().fireRateGiven = 0.5f;
+                    enemyDouble.GetComponent<EnemyScript>().divSpeedGiven = 4.00f;
+
+                    //Create the enemy
+                    Instantiate(enemyDouble, enemyDouble.transform.position, enemyDouble.transform.rotation);
+
+                    //Move stages for next time
+                    stage = 24;
+
+                    break;
+
+                case 24:
+
+                    //Spawn a health powerup
+                    Instantiate(health, health.transform.position, health.transform.rotation);
+
+                    //Move stage for next time
+                    stage = 25;
+
                     break;
 
                 default:

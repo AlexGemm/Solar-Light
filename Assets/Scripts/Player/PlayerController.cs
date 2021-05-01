@@ -82,6 +82,8 @@ public class PlayerController : MonoBehaviour{
             //Update the timer for the delay
             nextFire = Time.time + fireRate;
 
+            //Play the sound effect for the player attack
+            gameObject.GetComponent<AudioSource>().Play();
 
             //Vector3 that stores where the laser should spawn according to where the player is at on the x axis
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y + 1.0f, 0.0f);
@@ -103,15 +105,29 @@ public class PlayerController : MonoBehaviour{
         //If the enemy hits a power up
         if (other.CompareTag("Powerup")){
 
-            //Fire twice as fast
-            fireRate /= 3.0f;
+            if(other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "power_up")
+            {
 
-            //Start a coroutine that eventually ends the effect
-            StartCoroutine(PowerupControl());
+                //Fire twice as fast
+                fireRate /= 3.0f;
+
+                //Start a coroutine that eventually ends the effect
+                StartCoroutine(PowerupControl());
+
+            }
+            else if(other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "health"){
+
+                playerHealth++;
+
+            }
+            
 
         }
         //Else it is an enemy laser or asteroid so
         else{
+
+            //Play the sound of hits
+            GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
 
             //Make the player lose a point of health
             playerHealth--;
