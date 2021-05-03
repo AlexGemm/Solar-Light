@@ -464,11 +464,42 @@ public class GameManager : MonoBehaviour{
 
                 case 24:
 
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
                     //Spawn a health powerup
                     Instantiate(health, health.transform.position, health.transform.rotation);
 
                     //Move stage for next time
                     stage = 25;
+
+                    break;
+
+                case 25:
+
+                    //If not ending
+                    if (ending == false){
+
+                        //Get the player reference
+                        GameObject player = GameObject.Find("Player");
+
+                        //Start the Coroutine for ending
+                        StartCoroutine(Ending(player));
+
+                        //Indicate it is ending
+                        ending = true;
+
+                    }
+                    //Else it is ending
+                    else{
+
+                        //And so should be staying at case 19 but leaving instead of starting the coroutine again
+                        break;
+
+                    }
 
                     break;
 
