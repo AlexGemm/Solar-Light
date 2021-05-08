@@ -33,7 +33,13 @@ May 1st:
 - New enemy and health powerup.
 - Sound effects and music.
 
+May 4th:
+- Added How to Play button as well as changes to level select.
+- Animation for hits.
+- Edited sounds.
 
+May 5th:
+- Major changes to cutscene, added skip button.
 
 TimeLog:
 
@@ -60,4 +66,8 @@ April 27th 1000am->1100am: Button after losing sends the player back to level se
 April 30th 7:00pm->9:00pm:  Finishing level selection and progression.
 
 May 1st 11:00am->4:00pm: New enemy, health power up, music and sound effects.
+
+May 4th 2:30pm->6:00pm: How to Play scene, animated explosions
+
+May 5th 5:30pm->6:30pm: Made the title appear over time in the cutscene
 
