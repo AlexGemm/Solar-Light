@@ -36,32 +36,68 @@ public class LevelSelect : MonoBehaviour{
         //If the user has yet to pass the Earth stage
         if(ValueStorage.stagePoint == 0){
 
-            //Start the Earth Scene
-            SceneManager.LoadScene("Cutscene");
+            StartCoroutine(startScene("Cutscene"));
 
         }
             
 
     }
 
+    //Start the moon level
     public void LoadMoon(){
 
-        //If the user has yet to pass the Earth stage
+        //If the user has yet to pass the Moon stage
         if (ValueStorage.stagePoint == 20){
 
-            //Start the Earth Scene
-            SceneManager.LoadScene("Moon");
+            StartCoroutine(startScene("Moon"));
 
         }
 
 
     }
 
-    //Start the Earth Level
+    //Start the level select screen
     public void LoadLevelSelect(){
 
-        //Start the Earth Scene
-        SceneManager.LoadScene("Select");
+        if (SceneManager.GetActiveScene().name == "Instructions"){
+
+            StartCoroutine(startScene("Select"));
+
+        }
+        else{
+
+            SceneManager.LoadScene("Select");
+
+        }
+
+    }
+
+    //Start the Instructions Screen
+    public void LoadInstructions(){
+
+        if(SceneManager.GetActiveScene().name == "Select"){
+
+            StartCoroutine(startScene("Instructions"));
+
+        }
+        else{
+
+            SceneManager.LoadScene("Instructions");
+
+        }
+
+    }
+
+    //Play the audio for button press but wait for it to finish before loading the scene
+    private IEnumerator startScene(string sceneName){
+
+        AudioSource sound = GameObject.Find("Sound").GetComponent<AudioSource>();
+
+        sound.Play();
+
+        yield return new WaitForSeconds(sound.clip.length);
+
+        SceneManager.LoadScene(sceneName);
 
     }
 

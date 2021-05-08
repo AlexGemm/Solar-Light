@@ -96,7 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1114661c873c6e34dabe72465a958970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 6788930849590779060, guid: e53c80cbbf73efa45b386f95c1bc3f97,
+    type: 3}
   laserSpeed: 10
+  laserDivGiven: -0
 --- !u!54 &4752385212814197170
 Rigidbody:
   m_ObjectHideFlags: 0

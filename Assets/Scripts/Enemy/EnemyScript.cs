@@ -65,16 +65,16 @@ public class EnemyScript : MonoBehaviour{
     //Upon collision
     private void OnTriggerEnter(Collider other){
 
-        //If the object is not a power up
+        //If the object that hit the enemy is not a power up
         if(other.CompareTag("Powerup") == false){
 
-            //Increase the times hit variable
+            //Manage tracking the times the enemy was hit
             timesHit++;
 
-            //Play the sound of hits
+            //Play the sound of hits that is stored in the facilitator
             GameObject.Find("Facilitator").GetComponent<AudioSource>().Play();
 
-            //Destroy the laser
+            //Destroy the laser that hit the enemy
             Destroy(other.gameObject);
 
         }

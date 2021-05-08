@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AsteroidScript : MonoBehaviour{
 
+    //Store the explosion prefab to create on a hit
+    public GameObject explosion;
+
+
+
     //Float variable that stores the speed stars will go
     public float asteroidSpeed = 2.0f;
     //Float variable that stores the rotation speed (purely for visual effect)
@@ -28,6 +33,8 @@ public class AsteroidScript : MonoBehaviour{
 
             //If the object it's colliding with is the player
             if (other.tag == "Player"){
+
+                Instantiate(explosion, transform.position, transform.rotation);
 
                 //Only destroy the asteroid, the rest will be taken care of in the player controller
                 Destroy(gameObject);

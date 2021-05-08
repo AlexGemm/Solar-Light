@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class EnemyLaserScript : MonoBehaviour{
 
-    //Float variable that stores the speed the lasers will go
+    //Store the explosion prefab to create on a hit
+    public GameObject explosion;
+
+
+
+    //Float variable stores speed that the enemy laser will move down
     public float laserSpeed = 10.0f;
 
-    //Used if the enemy makes the laser diverge left or right
+    //Float variables given by the enemy and made individual for each instance, moves the laser left or right
     public float laserDivGiven = 0.0f;
     private float laserDiv = 0.0f;
+
+
 
     //Initialization
     void Start(){
@@ -22,11 +29,22 @@ public class EnemyLaserScript : MonoBehaviour{
     //Every frame
     void Update(){
 
-        //Move the laser down at a constant speed
+        //Move the laser down
         transform.Translate(Vector3.down * Time.deltaTime * laserSpeed);
 
-        //Move the laser left or right as needed
+        //Move the laser right, laserDiv can be negative thus moving the laser left
         transform.Translate(Vector3.right * Time.deltaTime * laserDiv);
+
+    }
+
+    //Make an explosion particle effect by taking the prefab with the explosion animation and instaniating it
+    private void OnTriggerEnter(Collider other){
+
+        if (other.tag != "Barrier" && other.tag != "Laser"){
+
+            Instantiate(explosion, transform.position, transform.rotation);
+
+        }
 
     }
 

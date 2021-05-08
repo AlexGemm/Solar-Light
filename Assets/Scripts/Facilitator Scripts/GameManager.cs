@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 1;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 2;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 3;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 4;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 5;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 6;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemyHard, enemyHard.transform.position, enemyHard.transform.rotation);
 
                     //Move stages for next time
-                    stage = 7;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 8;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 9;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 10;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemyHard, enemyHard.transform.position, enemyHard.transform.rotation);
 
                     //Move stages for next time
-                    stage = 11;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 12;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 13;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 14;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 15;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -311,7 +311,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 16;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -334,7 +334,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 17;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -348,7 +348,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemyHard, enemyHard.transform.position, enemyHard.transform.rotation);
 
                     //Move stages for next time
-                    stage = 18;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -362,7 +362,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemyHard, enemyHard.transform.position, enemyHard.transform.rotation);
 
                     //Move stages for next time
-                    stage = 19;
+                    stage++;
 
                     break;
 
@@ -410,7 +410,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 21;
+                    stage++;
 
                     //Leave the switch statement
                     break;
@@ -424,7 +424,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 22;
+                    stage++;
 
                     break;
 
@@ -437,7 +437,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
 
                     //Move stages for next time
-                    stage = 23;
+                    stage++;
 
                     break;
 
@@ -448,7 +448,7 @@ public class GameManager : MonoBehaviour{
 
                     //Setup variables for this stages enemies
                     enemyDouble.GetComponent<EnemyScript>().enemySpeedGiven = 10.0f;
-                    enemyDouble.GetComponent<EnemyScript>().enemyHealthGiven = 1;
+                    enemyDouble.GetComponent<EnemyScript>().enemyHealthGiven = 2;
                     enemyDouble.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
                     enemyDouble.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
                     enemyDouble.GetComponent<EnemyScript>().fireRateGiven = 0.5f;
@@ -458,7 +458,7 @@ public class GameManager : MonoBehaviour{
                     Instantiate(enemyDouble, enemyDouble.transform.position, enemyDouble.transform.rotation);
 
                     //Move stages for next time
-                    stage = 24;
+                    stage++;
 
                     break;
 
@@ -474,11 +474,93 @@ public class GameManager : MonoBehaviour{
                     Instantiate(health, health.transform.position, health.transform.rotation);
 
                     //Move stage for next time
-                    stage = 25;
+                    stage++;
 
                     break;
 
                 case 25:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive += 2;
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = -0.45f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = 0.45f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
+
+                    stage++;
+
+                    break;
+
+                case 26:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive += 2;
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = -0.45f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = 0.45f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
+
+                    stage++;
+
+                    break;
+
+                case 27:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive += 2;
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = -0.45f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = 0.45f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position + new Vector3(4.35f, 0f, 0f), enemy.transform.rotation);
+
+                    stage++;
+
+                    break;
+
+                case 28:
+
+                    //Indicate that there are currently enemies alive as to not change stages
+                    enemiesAlive++;
+
+                    //Setup variables for this stages enemies
+                    enemy.GetComponent<EnemyScript>().enemySpeedGiven = 10.0f;
+                    enemy.GetComponent<EnemyScript>().enemyHealthGiven = 1;
+                    enemy.GetComponent<EnemyScript>().enemySpaceStart = -3.9f;
+                    enemy.GetComponent<EnemyScript>().enemySpaceEnd = 3.9f;
+                    enemy.GetComponent<EnemyScript>().fireRateGiven = 1.5f;
+
+                    //Create the enemy
+                    Instantiate(enemy, enemy.transform.position, enemy.transform.rotation);
+
+                    stage++;
+
+                    break;
+
+                case 29:
 
                     //If not ending
                     if (ending == false){
