@@ -1,44 +1,7 @@
 # Solar Light
 
-Devlog:
+Description: Solar Light is a multi-leveled space shooter where the player controls a spaceship and is fighting different enemy alien ships throughout a level. The goal is to defeat all the enemies of the level by firing at them and avoiding their shots while also avoiding asteroids that spawn to the left and right. The player can navigate levels using a level selection screen.
 
-April 6th:
-- Created a spaceship sprite.
-- Created more sprites and placed in Unity as prefabs.
-- Made some necessary scripts
-
-April 9th:
-- Player control
-- Enemy movement
-
-April 14th: 
-- Created game manager
-
-April 18th:
-- Level Design
-- Power up function
-- Working lives counter
-
-April 26th:
-- Added a main menu with buttons for entering levels
-
-April 27th:
-- Implimented a Game Over button.
-
-April 30th:
-- Added a moon level
-- Game keeps track of what stage the player is on for scene control.
-
-May 1st:
-- New enemy and health powerup.
-- Sound effects and music.
-
-May 4th:
-- Added How to Play button as well as changes to level select.
-- Animation for hits.
-- Edited sounds.
-
-May 5th:
-- Major changes to cutscene, added skip button.
+Link to itch page: https://alexgem.itch.io/solar-light
 
 
